@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria Huellitas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>🐾 Veterinaria Huellitas</h1>
+        <p>Registro de mascotas</p>
+    </header>
+
+    <input value="37826866" type="number" id="dni" placeholder="Ej: 3422567" required>
+    <input value="Rojas" type="text" id="nombre" placeholder="Ej: Luna" required>
+    <input value="Caniche" type="text" id="raza" placeholder="Ej: Caniche" required>
+    <input value="11" type="number" id="edad" placeholder="Ej: 4" required>
+    <input value="Alejandro Rojas" type="text" id="dueño" placeholder="Ej: Sofía Pérez" required>
+    <input value="2954392363" type="number" id="numero" placeholder="Ej:2954243567" required>
+    <button id="Registrar">Registrar mascota</button>
+
+    <div class="lista">
+        <table>
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>nombre</th>
+                    <th>raza</th>
+                    <th>edad</th>
+                    <th>dueño</th>
+                    <th>numero</th>
+                </tr>
+            </thead>
+            <tbody class="tabla-mascotas">
+                <!-- Las filas de la tabla se agregarán aquí dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+<script src="huellita.js" type="module"></script>
+
+</html>
