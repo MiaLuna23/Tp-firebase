@@ -21,7 +21,7 @@ const app = initializeApp(firebaseConfig);
 //Inicializamos la base de datos
 const db = getDatabase(app);
 
-
+let inputBuscarNombreMascota = document.getElementById("buscarnombremascota")
 let inputDni = document.querySelector("#dni")
 let inputNombre = document.querySelector("#numero")
 let inputRaza= document.querySelector("#raza")
@@ -29,6 +29,7 @@ let inputEdad = document.querySelector("#edad")
 let inputDueño = document.querySelector("#dueño")
 let inputNumero = document.querySelector("#numero")
 let btnAgregar = document.querySelector("#Registrar")
+let btnBuscar = document.querySelector ("#buscar")
 
 
 btnAgregar.onclick = function () {
@@ -39,8 +40,7 @@ btnAgregar.onclick = function () {
         //Tomamos cada dato desde los inputs del formulario
         dni: inputDni.value,
         nombre: inputNombre.value,
-        raza: inputRaza.value,
-        edad: inputEdad.value,
+            edad: inputEdad.value,
         dueño: inputDueño.value,
         numero: inputNumero.value
     })
@@ -54,6 +54,7 @@ btnAgregar.onclick = function () {
         }); 
 
 }
+btnBuscar.onclick = function() {
 let tabla = document.querySelector('.tabla-mascotas')
 let mascotasRef = ref(db, 'mascotas/');
 onValue(mascotasRef, (datos) => {
@@ -65,7 +66,9 @@ onValue(mascotasRef, (datos) => {
     tabla.innerHTML = "";
     //Recorremos los datos obtenidos de los estudiantes
     for (let dni in dueño) {
-        tabla.innerHTML += `
+
+        if(dni == inputBuscarNombreMascota.value)
+        {tabla.innerHTML += `
         <tr>
             <td>${dni}</td>
             <td>${dueño[dni].nombre}</td>
@@ -76,9 +79,6 @@ onValue(mascotasRef, (datos) => {
         </tr>
         `;
         
-    }
+    }}
 
-})
-
-
-    
+})}
